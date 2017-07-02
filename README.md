@@ -78,6 +78,8 @@ There are three tables in the data:
         CAST(totalErrors.errors AS FLOAT)/totalViews.total*100 "
         FROM totalErrors, totalViews 
         WHERE totalErrors.date = totalViews.date```
-   
+### Output:
+![screen shot](/data.pg/.raw=true "Data Output")
 ### Exiting the VM
 To exit type `contol + D`
+
