@@ -79,4 +79,5 @@ There are three tables in the data:
         FROM totalErrors, totalViews 
         WHERE totalErrors.date = totalViews.date```
    
-
+### Exiting the VM
+To exit type `contol + D`
