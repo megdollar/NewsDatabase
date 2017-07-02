@@ -1,6 +1,6 @@
 # News Database
 ### About the Logs Analytics Project:
-Built as part of the Udacity Full Stack Nanodegree, this is an internal reporting tool that uses information from the news database to discover what type of articles the readers prefer. The reporting tool prints out reports (in plain text) based on the data in the database. This reporting tool is a Python program using the psycopg2 module to connect to the database. 
+Built as part of the [Udacity's Full Stack Nanodegree](https://classroom.udacity.com/nanodegrees/nd004/parts/8d3e23e1-9ab6-47eb-b4f3-d5dc7ef27bf0/modules/bc51d967-cb21-46f4-90ea-caf73439dc59/lessons/262a84d7-86dc-487d-98f9-648aa7ca5a0f/concepts/079be127-2d22-4c62-91a8-aa031e760eb0) this is an internal reporting tool that uses information from the news database to discover what type of articles the readers prefer. The reporting tool prints out reports (in plain text) based on the data in the database. This reporting tool is a Python program using the psycopg2 module to connect to the database. 
 
 The database contains newspaper articles, as well as the web server log for the site. The log has a database row for each time a reader loaded a web page. The program runs from the command line by connecting to that database, using SQL queries to analyze the log data, and then it out the answers to three questions.
 
@@ -40,5 +40,19 @@ The database contains newspaper articles, as well as the web server log for the 
 #### Run the Queries:
 1. From the vagrant direcotry inside the VM
    `python3 news.py`
+
+### About the Data:
+There are three tables in the data:
+* The authors table contains information about the authors of the articles.
+* The articles table contains the articles.
+* The log table includes one entry for each time a user accessed (both attempted ad failed access) the site.
+
+### About the Queries:
+1. What are the most popular three articles of all time?
+   ``
+2. Who are the most popular article authors of all time?
+   `` 
+3. On which days did more than 1% of requests lead to errors?
+   ``
    
 
