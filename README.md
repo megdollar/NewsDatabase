@@ -55,14 +55,16 @@ There are three tables in the data:
         LIKE CONCAT('%', articles.slug) 
         GROUP BY articles.title 
         ORDER BY views DESC 
-        LIMIT 3```
+        LIMIT 3
+        ```
 2. Who are the most popular article authors of all time?
    ```
    SELECT authors.name, count(log.path) AS views
          FROM authors LEFT JOIN articles ON authors.id = articles.author 
          LEFT JOIN log ON log.path LIKE CONCAT('%', articles.slug) 
          GROUP BY authors.name 
-         ORDER BY views DESC``` 
+         ORDER BY views DESC
+         ``` 
 3. On which days did more than 1% of requests lead to errors?
    ```
    WITH totalErrors AS 
@@ -77,9 +79,10 @@ There are three tables in the data:
         SELECT totalErrors.date, totalErrors.errors, totalViews.total, 
         CAST(totalErrors.errors AS FLOAT)/totalViews.total*100 "
         FROM totalErrors, totalViews 
-        WHERE totalErrors.date = totalViews.date```
+        WHERE totalErrors.date = totalViews.date
+        ```
 ### Output:
 ![screen shot](data.png?raw=true "Data Output")
 ### Exiting the VM
-To exit type `contol + D`
+To exit type `control + D`
 
