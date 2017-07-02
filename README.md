@@ -49,19 +49,34 @@ There are three tables in the data:
 
 ### About the Queries:
 1. What are the most popular three articles of all time?
-   ```SELECT articles.title, count(*) AS views 
+   ```
+   SELECT articles.title, count(*) AS views 
         FROM articles LEFT JOIN log ON log.path 
         LIKE CONCAT('%', articles.slug) 
         GROUP BY articles.title 
         ORDER BY views DESC 
         LIMIT 3```
 2. Who are the most popular article authors of all time?
-   ```SELECT authors.name, count(log.path) AS views
+   ```
+   SELECT authors.name, count(log.path) AS views
          FROM authors LEFT JOIN articles ON authors.id = articles.author 
          LEFT JOIN log ON log.path LIKE CONCAT('%', articles.slug) 
          GROUP BY authors.name 
          ORDER BY views DESC``` 
 3. On which days did more than 1% of requests lead to errors?
-   ``
+   ```
+   WITH totalErrors AS 
+        (SELECT time:: date AS date, 
+        count(log.status) AS errors 
+        FROM log where status LIKE '%404 %' 
+        GROUP BY date), 
+        totalViews AS 
+        (SELECT time::date as date, count(status) AS total 
+        FROM log 
+        GROUP by date) 
+        SELECT totalErrors.date, totalErrors.errors, totalViews.total, 
+        CAST(totalErrors.errors AS FLOAT)/totalViews.total*100 "
+        FROM totalErrors, totalViews 
+        WHERE totalErrors.date = totalViews.date```
    
 
