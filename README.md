@@ -79,7 +79,7 @@ There are three tables in the data:
         FROM totalErrors, totalViews 
         WHERE totalErrors.date = totalViews.date```
 ### Output:
-![screen shot](/data.pg/.raw=true "Data Output")
+![screen shot](/data.png/.raw=true "Data Output")
 ### Exiting the VM
 To exit type `contol + D`
 
